@@ -113,6 +113,16 @@ public class ConcurrentHashMap<K, V> extends MyMap <K, V> implements Map<K, V> {
         }
     }
 
+    @Override
+    public void clear() {
+        for (int i = 0; i < buckets.length; i++) {
+            synchronized (locks[i]) {
+                buckets[i] = null;
+            }
+        }
+        count.set(0);
+    }
+
     private boolean isKeyEquals(Object key, int hash, Node<K, V> node) {
         return node.hash == hash &&
                 node.key == key || (node.key.equals(key));

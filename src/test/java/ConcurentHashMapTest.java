@@ -66,4 +66,15 @@ public class ConcurentHashMapTest {
         assertThrows(IllegalArgumentException.class, () -> map.get(null));
     }
 
+    @Test
+    public void testClear() {
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>(10);
+        for (int i = 0; i < 100; i++) {
+            map.put("key" + i, i);
+        }
+        assertEquals(100, map.size());
+        map.clear();
+        assertEquals(0, map.size());
+    }
+
 }

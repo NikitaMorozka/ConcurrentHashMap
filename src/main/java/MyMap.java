@@ -10,10 +10,6 @@ public abstract class MyMap <K, V> implements Map<K, V> {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public Set<K> keySet() {
@@ -44,4 +40,6 @@ public abstract class MyMap <K, V> implements Map<K, V> {
     public boolean containsValue(Object value) {
         throw new UnsupportedOperationException();
     }
+
+
 }
