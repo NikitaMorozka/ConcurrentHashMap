@@ -7,8 +7,6 @@ public class ConcurrentHashMap<K, V> extends MyMap <K, V> implements Map<K, V> {
     private final Node<K, V>[] buckets;
     private final Object[] locks;
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
-
     public ConcurrentHashMap(int capacity) {
         locks = new Object[capacity];
         for (int i = 0; i < locks.length; i++) {
@@ -123,10 +121,69 @@ public class ConcurrentHashMap<K, V> extends MyMap <K, V> implements Map<K, V> {
         count.set(0);
     }
 
+    @Override
+    public boolean containsKey(Object key) {
+        if (key == null) throw new IllegalArgumentException();
+        int hash = hash(key);
+        synchronized (getLockFor(hash)) {
+            Node<K, V> node = buckets[getBucketIndex(hash)];
+            while (node != null) {
+                if (isKeyEquals(key, hash, node)) {
+                    return true;
+                }
+                node = node.next;
+            }
+            return false;
+        }
+    }
+
+    @Override
+    public boolean containsValue(Object value) {
+        if (value == null) throw new IllegalArgumentException();
+        for (int i = 0; i < buckets.length; i++) {
+            synchronized (locks[i]) {
+                Node<K, V> node = buckets[i];
+                while (node != null) {
+                    if (isValueEquals(value, node)) { // Проверка соответствия значения
+                        return true;
+                    }
+                    node = node.next;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    @Override
+    public V replace(K key, V newValue) {
+        if (key == null || newValue == null) throw new IllegalArgumentException();
+        int hash = hash(key);
+        synchronized (getLockFor(hash)) {
+            Node<K, V> node = buckets[getBucketIndex(hash)];
+            while (node != null) {
+                if (isKeyEquals(key, hash, node)) {
+                    V oldValue = node.value;
+                    node.value = newValue;
+                    return oldValue;
+                }
+                node = node.next;
+            }
+            return null;
+        }
+    }
+
+
     private boolean isKeyEquals(Object key, int hash, Node<K, V> node) {
         return node.hash == hash &&
-                node.key == key || (node.key.equals(key));
+                (node.key == key || (node.key != null && node.key.equals(key)));
+
     }
+
+    private boolean isValueEquals(Object value, Node<K, V> node) {
+        return node.value == value || (node.value != null && node.value.equals(value));
+    }
+
 
     private int hash(Object key) {
         return key.hashCode();

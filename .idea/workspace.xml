@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40578753-3965-4d98-8807-f899bae2be7f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ConcurrentHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConcurrentHashMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ConcurentHashMapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ConcurentHashMapTest.java" afterDir="false" />
@@ -41,6 +41,8 @@
     "JUnit.ConcurentHashMapTest.size.executor": "Run",
     "JUnit.ConcurentHashMapTest.testClear.executor": "Run",
     "JUnit.ConcurentHashMapTest.testConcurrentPutAndGet.executor": "Run",
+    "JUnit.ConcurentHashMapTest.testContainsKey.executor": "Run",
+    "JUnit.ConcurentHashMapTest.testContainsValue.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
@@ -69,32 +71,12 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ConcurentHashMapTest.testClear">
+  <component name="RunManager" selected="JUnit.ConcurentHashMapTest">
     <configuration name="ConcurentHashMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyConcurrentHashMap" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ConcurentHashMapTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConcurentHashMapTest.put" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyConcurrentHashMap" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConcurentHashMapTest" />
-      <option name="METHOD_NAME" value="put" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConcurentHashMapTest.size" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyConcurrentHashMap" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConcurentHashMapTest" />
-      <option name="METHOD_NAME" value="size" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,11 +91,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConcurentHashMapTest.testConcurrentPutAndGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConcurentHashMapTest.testContainsKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyConcurrentHashMap" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ConcurentHashMapTest" />
-      <option name="METHOD_NAME" value="testConcurrentPutAndGet" />
+      <option name="METHOD_NAME" value="testContainsKey" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConcurentHashMapTest.testContainsValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyConcurrentHashMap" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConcurentHashMapTest" />
+      <option name="METHOD_NAME" value="testContainsValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConcurentHashMapTest.testGetWithNullKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyConcurrentHashMap" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConcurentHashMapTest" />
+      <option name="METHOD_NAME" value="testGetWithNullKey" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ConcurentHashMapTest.testClear" />
-        <item itemvalue="JUnit.ConcurentHashMapTest.testConcurrentPutAndGet" />
         <item itemvalue="JUnit.ConcurentHashMapTest" />
-        <item itemvalue="JUnit.ConcurentHashMapTest.size" />
-        <item itemvalue="JUnit.ConcurentHashMapTest.put" />
+        <item itemvalue="JUnit.ConcurentHashMapTest.testGetWithNullKey" />
+        <item itemvalue="JUnit.ConcurentHashMapTest.testContainsKey" />
+        <item itemvalue="JUnit.ConcurentHashMapTest.testContainsValue" />
+        <item itemvalue="JUnit.ConcurentHashMapTest.testClear" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +148,8 @@
       <option name="presentableId" value="Default" />
       <updated>1723133190481</updated>
       <workItem from="1723133191424" duration="9725000" />
-      <workItem from="1723193886941" duration="6265000" />
+      <workItem from="1723193886941" duration="9197000" />
+      <workItem from="1723289124623" duration="7615000" />
     </task>
     <servers />
   </component>
